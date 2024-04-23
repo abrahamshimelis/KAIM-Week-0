@@ -1,6 +1,5 @@
 # KAIM-Week-0
 10 Academy: Artificial Intelligence Mastery - Week 0 Challenge
-# KAIM-Week-0
 ## Overview
 This project focuses on setting up a Python environment using Git for version control and implementing CI/CD practices. It comprises two main tasks:
 
