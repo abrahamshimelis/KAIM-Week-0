@@ -19,7 +19,7 @@ class TestDataQualityCheck(unittest.TestCase):
         self.assertEqual(result['C'], 0)
 
     def test_check_outliers(self):
-        result = self.data_quality_check.check_outliers('B')
+        result = self.data_quality_check.check_outliers('B', threshold=2)
         self.assertEqual(result['B'].values[0], 100)
 
     def test_check_incorrect_entries(self):

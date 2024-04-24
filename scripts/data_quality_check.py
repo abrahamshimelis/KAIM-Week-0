@@ -9,10 +9,10 @@ class DataQualityCheck:
         return self.df.isnull().sum()
 
     # significantly different from other observations.
-    def check_outliers(self, column):
+    def check_outliers(self, column, threshold=2.5):
         z_scores = stats.zscore(self.df[column])
         abs_z_scores = np.abs(z_scores)
-        return self.df[abs_z_scores > 3]
+        return self.df[abs_z_scores > threshold]
 
     # In this case, it checks for negative values
     def check_incorrect_entries(self, column):
