@@ -1,37 +1,17 @@
-Goal:
-The goal is to analyze environmental data and create a strategy report that recommends where to install solar panels to help the company become more efficient and sustainable.
-
-Objectives:
-Perform Exploratory Data Analysis (EDA) analysis on the following:
-
-- Summary Statistics: Calculate the mean, median, standard deviation, and other statistical measures for each numeric column to understand data distribution.
-
-- Data Quality Check: Look for missing values, outliers, or incorrect entries (e.g., negative values where only positive should exist), especially in columns like GHI, DNI, and DHI.
-
-- Time Series Analysis: Analyze how variables like GHI, DNI, DHI, and Tamb change over time. You can plot these metrics across the 'Timestamp' to identify patterns or anomalies.
-
-- Correlation Analysis: Determine the correlation between different variables like solar radiation components (GHI, DHI, DNI) and temperature measures (TModA, TModB) to uncover relationships.
-
-- Wind Analysis: Explore wind speed (WS, WSgust, WSstdev) and wind direction (WD, WDstdev) data to identify any trends or notable wind events.
-
-- Temperature Analysis: Compare module temperatures (TModA, TModB) with ambient temperature (Tamb) to see how they are related or vary under different conditions.
-
-- Histograms: Create histograms for variables like GHI, DNI, DHI, WS, and temperatures to visualize the frequency distribution of these variables.
-
-- Box Plots: Use box plots to examine the spread and presence of outliers in the solar radiation and temperature data.
-
-- Scatter Plots: Generate scatter plots to explore the relationships between pairs of variables, such as GHI vs. Tamb, WS vs. WSgust, or any other potentially interesting pairs.
-
-- Data Cleaning: Based on the initial analysis, clean the dataset by handling anomalies and missing values, especially in columns like Comments which appear entirely null.
-
-Tasks:
-- Set up Python environment.
-- Set up Git version control. 
-- Create a GitHub repository and branches for tasks.
-- Commit work with descriptive messages.
-- Configure CI/CD.
-- Conduct Exploratory Data Analysis (EDA) and statistical analysis.
-- Integrate Python scripts for data processing.
-- Develop a Streamlit dashboard with interactive features.
-- Deploy the dashboard to Streamlit Community Cloud.
-- Document the development process and usage instructions in README.md.
+contourpy==1.2.1
+cycler==0.12.1
+fonttools==4.51.0
+kiwisolver==1.4.5
+matplotlib==3.8.4
+numpy==1.26.4
+packaging==24.0
+pandas==2.2.2
+pillow==10.3.0
+pip==23.2.1
+pyparsing==3.1.2
+python-dateutil==2.9.0.post0
+pytz==2024.1
+scipy==1.13.0
+seaborn==0.13.2
+six==1.16.0
+tzdata==2024.1
