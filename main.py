@@ -1,5 +1,5 @@
 import pandas as pd
-from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis, CorrelationAnalysis
+from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis, CorrelationAnalysis, WindAnalysis
 
 df = pd.read_csv('data/benin-malanville.csv')
 
@@ -29,8 +29,15 @@ df = pd.read_csv('data/benin-malanville.csv')
 # # Now you can use the analyze method in your class
 # ts_analysis.analyze('GHI')
 
-# Create an instance of CorrelationAnalysis
-corr_analysis = CorrelationAnalysis(df)
+# # Create an instance of CorrelationAnalysis
+# corr_analysis = CorrelationAnalysis(df)
 
-# Now you can use the analyze method in your class
-print(corr_analysis.analyze('GHI', 'DNI'))
+# # Now you can use the analyze method in your class
+# print(corr_analysis.analyze('GHI', 'DNI'))
+
+# Create an instance of WindAnalysis
+wind_analysis = WindAnalysis(df)
+
+# Now you can use the analyze_speed and analyze_direction methods in your class
+print(wind_analysis.analyze_speed('WS'))
+print(wind_analysis.analyze_direction('WD'))
