@@ -1,30 +1,36 @@
 import pandas as pd
-from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis
+from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis, CorrelationAnalysis
 
 df = pd.read_csv('data/benin-malanville.csv')
 
-# Create a SummaryStatistics object
-summary_statistics = SummaryStatistics(df)
+# # Create a SummaryStatistics object
+# summary_statistics = SummaryStatistics(df)
 
-# Calculate summary statistics
-result = summary_statistics.calculate()
+# # Calculate summary statistics
+# result = summary_statistics.calculate()
 
-# Print the result
-for column, stats in result.items():
-    print(f"Column: {column}")
-    for stat, value in stats.items():
-        print(f"  {stat}: {value}")
+# # Print the result
+# for column, stats in result.items():
+#     print(f"Column: {column}")
+#     for stat, value in stats.items():
+#         print(f"  {stat}: {value}")
 
-dq_check = DataQualityCheck(df)
+# dq_check = DataQualityCheck(df)
 
-# Now you can use the methods in your class
-print(dq_check.check_missing_values())
-print(dq_check.check_outliers('GHI'))
-print(dq_check.check_incorrect_entries('GHI')) 
+# # Now you can use the methods in your class
+# print(dq_check.check_missing_values())
+# print(dq_check.check_outliers('GHI'))
+# print(dq_check.check_incorrect_entries('GHI')) 
 
 
-# Create an instance of TimeSeriesAnalysis
-ts_analysis = TimeSeriesAnalysis(df)
+# # Create an instance of TimeSeriesAnalysis
+# ts_analysis = TimeSeriesAnalysis(df)
+
+# # Now you can use the analyze method in your class
+# ts_analysis.analyze('GHI')
+
+# Create an instance of CorrelationAnalysis
+corr_analysis = CorrelationAnalysis(df)
 
 # Now you can use the analyze method in your class
-ts_analysis.analyze('GHI')
+print(corr_analysis.analyze('GHI', 'DNI'))
