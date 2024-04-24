@@ -1,1 +1,3 @@
 from .test_summary_statistics import TestSummaryStatistics
+from .test_data_quality_check import TestDataQualityCheck
+from .test_time_series_analysis import TestTimeSeriesAnalysis

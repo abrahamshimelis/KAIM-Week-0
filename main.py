@@ -1,5 +1,5 @@
 import pandas as pd
-from scripts import SummaryStatistics, DataQualityCheck
+from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis
 
 df = pd.read_csv('data/benin-malanville.csv')
 
@@ -21,3 +21,10 @@ dq_check = DataQualityCheck(df)
 print(dq_check.check_missing_values())
 print(dq_check.check_outliers('GHI'))
 print(dq_check.check_incorrect_entries('GHI')) 
+
+
+# Create an instance of TimeSeriesAnalysis
+ts_analysis = TimeSeriesAnalysis(df)
+
+# Now you can use the analyze method in your class
+ts_analysis.analyze('GHI')
