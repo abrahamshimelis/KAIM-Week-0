@@ -1,7 +1,10 @@
 import pandas as pd
-from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis, CorrelationAnalysis, WindAnalysis
+from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis, CorrelationAnalysis, WindAnalysis, TemperatureAnalysis
 
+# Read the CSV files
 df = pd.read_csv('data/benin-malanville.csv')
+df2 = pd.read_csv('data/sierraleone-bumbuna.csv')
+df3 = pd.read_csv('data/togo-dapaong_qc.csv')
 
 # # Create a SummaryStatistics object
 # summary_statistics = SummaryStatistics(df)
@@ -35,9 +38,16 @@ df = pd.read_csv('data/benin-malanville.csv')
 # # Now you can use the analyze method in your class
 # print(corr_analysis.analyze('GHI', 'DNI'))
 
-# Create an instance of WindAnalysis
-wind_analysis = WindAnalysis(df)
+# # Create an instance of WindAnalysis
+# wind_analysis = WindAnalysis(df)
 
-# Now you can use the analyze_speed and analyze_direction methods in your class
-print(wind_analysis.analyze_speed('WS'))
-print(wind_analysis.analyze_direction('WD'))
+# # Now you can use the analyze_speed and analyze_direction methods in your class
+# print(wind_analysis.analyze_speed('WS'))
+# print(wind_analysis.analyze_direction('WD'))
+
+
+# Create an instance of TemperatureAnalysis
+temp_analysis = TemperatureAnalysis(df)
+
+# Now you can use the compare method in your class
+print(temp_analysis.compare('Tamb', 'GHI'))

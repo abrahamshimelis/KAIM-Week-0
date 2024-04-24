@@ -3,3 +3,4 @@ from .test_data_quality_check import TestDataQualityCheck
 from .test_time_series_analysis import TestTimeSeriesAnalysis
 from .test_correlation_analysis import TestCorrelationAnalysis
 from .test_wind_analysis import TestWindAnalysis
+from .test_temperature_analysis import TestTemperatureAnalysis

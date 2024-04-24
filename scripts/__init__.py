@@ -3,3 +3,4 @@ from .data_quality_check import DataQualityCheck
 from .time_series_analysis import TimeSeriesAnalysis
 from .correlation_analysis import CorrelationAnalysis
 from .wind_analysis import WindAnalysis
+from .temperature_analysis import TemperatureAnalysis
