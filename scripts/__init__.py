@@ -7,3 +7,4 @@ from .temperature_analysis import TemperatureAnalysis
 from .data_cleaning import DataCleaning
 from .histograms import Histograms
 from .box_plots import BoxPlots
+from .scatter_plots import ScatterPlots

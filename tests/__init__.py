@@ -6,3 +6,4 @@ from .test_wind_analysis import TestWindAnalysis
 from .test_temperature_analysis import TestTemperatureAnalysis
 from .test_data_cleaning import TestDataCleaning
 from .test_box_plots import TestBoxPlots
+from .test_scatter_plots import TestScatterPlots
