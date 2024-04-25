@@ -1,5 +1,5 @@
 import pandas as pd
-from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis, CorrelationAnalysis, WindAnalysis, TemperatureAnalysis
+from scripts import SummaryStatistics, DataQualityCheck, TimeSeriesAnalysis, CorrelationAnalysis, WindAnalysis, TemperatureAnalysis, DataCleaning
 
 # Read the CSV files
 df = pd.read_csv('data/benin-malanville.csv')
@@ -46,8 +46,21 @@ df3 = pd.read_csv('data/togo-dapaong_qc.csv')
 # print(wind_analysis.analyze_direction('WD'))
 
 
-# Create an instance of TemperatureAnalysis
-temp_analysis = TemperatureAnalysis(df)
+# # Create an instance of TemperatureAnalysis
+# temp_analysis = TemperatureAnalysis(df)
 
-# Now you can use the compare method in your class
-print(temp_analysis.compare('Tamb', 'GHI'))
+# # Now you can use the compare method in your class
+# print(temp_analysis.compare('Tamb', 'GHI'))
+
+# Create an instance of DataCleaning
+data_cleaning = DataCleaning(df)
+
+# Now you can use the handle_missing_values method in your class
+df_clean = data_cleaning.handle_missing_values('Comments')
+
+# # Print the result
+for column, stats in df_clean.items():
+    print(f"Column: {column}")
+    if (column == 'Comments'):
+        for stat, value in stats.items():
+            print(f"  {stat}: {value}")

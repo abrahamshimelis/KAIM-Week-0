@@ -4,3 +4,4 @@ from .time_series_analysis import TimeSeriesAnalysis
 from .correlation_analysis import CorrelationAnalysis
 from .wind_analysis import WindAnalysis
 from .temperature_analysis import TemperatureAnalysis
+from .data_cleaning import DataCleaning
