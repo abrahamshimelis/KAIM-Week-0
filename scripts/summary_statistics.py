@@ -3,4 +3,7 @@ class SummaryStatistics:
         self.df = df
 
     def calculate(self):
-        return self.df.describe()
+        # Exclude 'Timestamp' column from the calculation
+        numeric_cols = self.df.select_dtypes(include='number').columns
+        stats = self.df[numeric_cols].describe()
+        return stats
