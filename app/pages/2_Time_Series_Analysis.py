@@ -1,6 +1,13 @@
 import streamlit as st
 import pandas as pd
 import os
+import sys
+
+# Get the absolute path of the scripts directory
+scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scripts')
+
+# Add the scripts directory to sys.path
+sys.path.append(scripts_dir)
 from scripts import TimeSeriesAnalysis
 
 # Function to get the absolute path of the data folder
