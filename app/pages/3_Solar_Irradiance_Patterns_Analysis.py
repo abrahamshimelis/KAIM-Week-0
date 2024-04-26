@@ -1,15 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-import sys
-
-# Get the absolute path of the scripts directory
-scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scripts')
-
-# Add the scripts directory to sys.path
-sys.path.append(scripts_dir)
-
-from scripts import SummaryStatistics, TimeSeriesAnalysis
+import matplotlib.pyplot as plt
 
 # Function to get the absolute path of the data folder
 def get_data_folder_path():
@@ -53,22 +45,30 @@ def analyze_solar_irradiance_patterns():
 
         # Calculate summary statistics for the dataset
         st.subheader("Summary Statistics")
-        summary_stats = SummaryStatistics(data)
-        stats_table = summary_stats.calculate()
-        st.write(stats_table)
+        stats = data.describe()
+        st.write(stats)
 
         # Create a single select dropdown for choosing the solar irradiance column
         selected_column = st.selectbox("Select Solar Irradiance Column", selectable_columns)
 
-        # Initialize TimeSeriesAnalysis class
-        ts_analysis = TimeSeriesAnalysis(data)
-
         # Perform time series analysis for the selected solar irradiance column
         st.subheader(f"Time Series Analysis for {selected_column}")
-        ts_analysis.analyze("Timestamp", selected_column)
+        time_series_analysis(data, "Timestamp", selected_column)
 
     else:
         st.error("Timestamp column not found in the dataset.")
+
+# Time Series Analysis Function
+def time_series_analysis(data, time_column, column1):
+    data[time_column] = pd.to_datetime(data[time_column])
+    data.set_index(time_column, inplace=True)
+
+    fig, ax = plt.subplots()
+    ax.plot(data.index, data[column1])
+    ax.set_xlabel(time_column)
+    ax.set_ylabel(column1)
+
+    st.pyplot(fig)
 
 # Main function to run the app
 def main():

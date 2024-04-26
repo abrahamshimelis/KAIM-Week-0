@@ -1,18 +1,16 @@
-# main.py
-
 import streamlit as st
 import pandas as pd
 import os
-import sys
+from scipy import stats
+import numpy as np
 
+# Data Quality Check Class
+class DataQualityCheck:
+    def __init__(self, df):
+        self.df = df
 
-# Get the absolute path of the scripts directory
-scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scripts')
-
-# Add the scripts directory to sys.path
-sys.path.append(scripts_dir)
-
-from scripts import DataQualityCheck
+    def check_missing_values(self):
+        return self.df.isnull().sum()
 
 # Function to get the absolute path of the data folder
 def get_data_folder_path():

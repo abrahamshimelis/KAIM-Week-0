@@ -1,14 +1,23 @@
 import streamlit as st
 import pandas as pd
 import os
-import sys
+import matplotlib.pyplot as plt
 
-# Get the absolute path of the scripts directory
-scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scripts')
+# Time Series Analysis Class
+class TimeSeriesAnalysis:
+    def __init__(self, df):
+        self.df = df
 
-# Add the scripts directory to sys.path
-sys.path.append(scripts_dir)
-from scripts import TimeSeriesAnalysis
+    def analyze(self, time_column, column1):
+        self.df[time_column] = pd.to_datetime(self.df[time_column])
+        self.df.set_index(time_column, inplace=True)
+
+        fig, ax = plt.subplots()
+        ax.plot(self.df.index, self.df[column1])
+        ax.set_xlabel(time_column)
+        ax.set_ylabel(column1)
+
+        st.pyplot(fig)
 
 # Function to get the absolute path of the data folder
 def get_data_folder_path():
@@ -39,9 +48,6 @@ def time_series_analysis():
                 data = pd.read_csv(file_path)
 
                 if "Timestamp" in data.columns:
-                    # Convert Timestamp to datetime format
-                    data["Timestamp"] = pd.to_datetime(data["Timestamp"])
-
                     # Initialize TimeSeriesAnalysis class
                     ts_analysis = TimeSeriesAnalysis(data)
 
